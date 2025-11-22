@@ -1,0 +1,4 @@
+# Requirements for the Minimo Landing Page Python Flask Backend
+# This lists the Python libraries necessary for app.py to run.
+
+Flask
