@@ -1,108 +1,82 @@
-🚀 Minimo Landing Page
+# 🚀 Minimo Landing Page
 
-A modern, responsive, and cross-browser compatible landing page built from a professional PSD design. This project utilizes a standard front-end stack (HTML, CSS, JS) integrated with a lightweight Python Flask backend for handling form submissions and serving the application.
+A modern and responsive landing page built from a professional PSD design. The project combines a clean front-end stack (HTML, CSS, JavaScript) with a lightweight Flask backend for handling form submissions and serving the application.
 
-✨ Features
+## ✨ Features
 
-Fully Responsive Design: Adapts flawlessly across all devices (mobile, tablet, desktop) using Flexbox and CSS Grid.
+- **Responsive Layout** built with Flexbox and CSS Grid.
+- **Fixed Header & Smooth Scrolling** for better navigation.
+- **Interactive UI Elements** including selectable pricing cards and a mobile-friendly hamburger menu.
+- **Functional Contact Form** powered by a Flask API and asynchronous fetch requests.
+- **Clean Codebase** using HTML5 semantics, modular CSS, and modern ES6+ JavaScript.
 
-Smooth Navigation: Fixed header and smooth scrolling anchor links for excellent user experience.
+## 🧱 Tech Stack
 
-Interactive UI: Pricing cards highlight on selection, and the header collapses into a mobile-friendly hamburger menu.
+| Category   | Technologies                      | Purpose                                      |
+|------------|------------------------------------|----------------------------------------------|
+| Frontend   | HTML5, CSS3, JavaScript (ES6+)     | Structure, styling, UI interactions          |
+| Backend    | Python 3, Flask                    | Routing, API endpoint for contact form       |
+| Styling    | Custom CSS with variables          | Responsive design and maintainable styling   |
 
-Functional Contact Form: Integrated with a Python Flask API to handle and process form submissions asynchronously.
+## ⚙️ Local Development Setup
 
-Modern Development: Written with clean HTML5 semantics, modular CSS, and ES6+ JavaScript.
+### Prerequisites
+Ensure the following are installed:
+- Python 3.x  
+- pip  
+- Git  
 
-🧱 Technologies Used
+### Installation
 
-Category
+Clone the repository:
 
-Technology
+```bash
+git clone https://github.com/anthitariel/minimo-landing-page.git
+```
 
-Purpose
+Navigate into the project directory:
 
-Frontend
-
-HTML5, CSS3, ES6+ JavaScript
-
-Structure, styling, and client-side interactivity.
-
-Backend
-
-Python 3.x, Flask
-
-Routing, serving static files, and implementing the /api/contact endpoint.
-
-Styling
-
-Custom CSS (Variables, Flexbox/Grid)
-
-Ensures maintainability and responsiveness.
-
-⚙️ Local Development Setup
-
-Follow these steps to get a copy of the project running on your local machine.
-
-Prerequisites
-
-You need the following installed on your system:
-
-Python 3.x
-
-pip (Python package installer)
-
-Git
-
-Installation
-
-Clone the Repository:
-
-git clone [https://github.com/anthitariel/minimo-landing-page.git](https://github.com/anthitariel/minimo-landing-page.git)
-
-
-Navigate to the Project Directory:
-
+```bash
 cd minimo-landing-page
+```
 
+Install dependencies:
 
-Install Python Dependencies:
-It is highly recommended to use a virtual environment. This command installs the Flask framework listed in requirements.txt.
-
+```bash
 pip install -r requirements.txt
+```
 
+Run the Flask server:
 
-Run the Flask Server:
-Execute the main application file to start the backend server.
-
+```bash
 python app.py
+```
 
+Open the application in your browser:
 
-Access the Application:
-Open your web browser and navigate to:
+```
+http://127.0.0.1:5000
+```
 
-[http://127.0.0.1:5000](http://127.0.0.1:5000)
+## 🤝 Contributing
 
+Contributions are welcome.
 
-The Flask server will now serve the index.html file and handle the contact form API calls.
+1. Fork the repository  
+2. Create a feature branch  
+   ```bash
+   git checkout -b feature/MyFeature
+   ```
+3. Commit your changes  
+   ```bash
+   git commit -m "Add MyFeature"
+   ```
+4. Push the branch  
+   ```bash
+   git push origin feature/MyFeature
+   ```
+5. Open a Pull Request
 
-🤝 Contribution
+## 📄 License
 
-We welcome contributions to the Minimo Landing Page project!
-
-Fork the repository.
-
-Create a new feature branch (git checkout -b feature/AmazingFeature).
-
-Commit your changes (git commit -m 'Add some AmazingFeature').
-
-Push to the branch (git push origin feature/AmazingFeature).
-
-Open a Pull Request.
-
-📄 License
-
-Distributed under the MIT License. See the LICENSE file for more information.
-
-
-Project Link: https://github.com/anthitariel/minimo-landing-page
+Distributed under the MIT License. See the `LICENSE` file for details.
