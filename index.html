@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Landing Page</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
+<body>
     <header class="header">
         <nav class="navbar">
-            <h1 class="logo">Minimo</h1>
-            <ul class="nav-links">
+            <a href="#" class="logo-link">
+                <h1 class="logo">Minimo</h1>
+            </a>
+            <button class="menu-toggle" aria-controls="nav-menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+
+            <ul class="nav-links" id="nav-menu">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -20,26 +27,98 @@
     </header>
 
     <main>
+
+
         <section class="hero-section">
-            <div class="hero-content">
-                <h2>The Future of Simple Design</h2>
-                <p>A clean, minimal, and modern approach to web development using the latest standards.</p>
-                <button id="cta-button" class="cta-button">Get Started Today</button>
+            <div class="hero-image-container">
+                <img src="img/hero-image.jpg" alt="Minimalist website design illustration"
+                    class="hero-background-image hover-zoom">
             </div>
-            <div class="hero-image">
-                
 
-[Image of Modern Minimal Website Layout]
-
+            <div class="hero-content">
+                <h2 class="hero-title">Elevate Your Digital Strategy</h2>
+                <p class="hero-subtitle">Minimo delivers a powerful, simple, and clean solution for your next-generation
+                    web presence. Start building today.</p>
+                <a href="#pricing" class="cta-button">See Plans</a>
             </div>
         </section>
 
         <section id="features" class="features-section">
-            <div class="feature-card"><h3>Responsive</h3><p>Works flawlessly on all devices using Flexbox and Grid.</p></div>
-            <div class="feature-card"><h3>Fast</h3><p>Optimized code for blazing-fast loading speeds.</p></div>
-            <div class="feature-card"><h3>Secure</h3><p>Built on modern, robust frameworks and best practices.</p></div>
+            <h2 class="section-title">Core Features That Drive Results</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <img src="img/blog-image-1.jpeg" alt="Lightning Bolt Icon" class="feature-image">
+                    <h3>Blazing Fast</h3>
+                    <p>Optimized for performance, our solutions deliver lightning-fast load times and seamless user
+                        experiences.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="img/blog-image-1.jpeg" alt="Mobile Icon" class="feature-image">
+                    <h3>Fully Responsive</h3>
+                    <p>Designed to look flawless on every device, from the smallest smartphone to the largest desktop
+                        display.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="img/blog-image-1.jpeg" alt="Lock Icon" class="feature-image">
+                    <h3>Secure & Reliable</h3>
+                    <p>Built on a robust foundation, ensuring your data is always safe and your service is always
+                        available.</p>
+                </div>
+            </div>
         </section>
+        <section class="info-block-section">
+            <div class="info-content">
+                <h2 class="section-title">Ready to Transform Your Digital Presence?</h2>
+                <p>We believe in building digital solutions that are not just beautiful, but fundamentally efficient and
+                    scalable. Minimo is the foundation for your next great project.</p>
+                <a href="#pricing" class="cta-button">See Plans</a>
+            </div>
+        </section>
+        <section id="pricing" class="pricing-section">
+            <h2 class="section-title">Affordable Plans for Everyone</h2>
+            <p class="section-subtitle">Flexible pricing for teams of all sizes. Click a card to select a plan!</p>
 
+            <div id="pricing-cards-container" class="pricing-cards-container">
+                <div class="pricing-card" data-plan="basic">
+                    <h4 class="plan-title">Basic</h4>
+                    <p class="price">$19<span>/mo</span></p>
+                    <ul>
+                        <li>5 Projects</li>
+                        <li>100GB Storage</li>
+                        <li>Email Support</li>
+                    </ul>
+                    <button class="cta-button">Start Trial</button>
+                </div>
+                <div class="pricing-card" data-plan="pro">
+                    <h4 class="plan-title">Pro</h4>
+                    <p class="price">$49<span>/mo</span></p>
+                    <ul>
+                        <li>Unlimited Projects</li>
+                        <li>500GB Storage</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <button class="cta-button">Choose Pro</button>
+                </div>
+                <div class="pricing-card" data-plan="enterprise">
+                    <h4 class="plan-title">Enterprise</h4>
+                    <p class="price">$99<span>/mo</span></p>
+                    <ul>
+                        <li>Custom Limits</li>
+                        <li>Unlimited Users</li>
+                        <li>Dedicated Manager</li>
+                    </ul>
+                    <button class="cta-button">Contact Sales</button>
+                </div>
+            </div>
+        </section>
+        <section class="info-block-section">
+            <div class="info-content">
+                <h2 class="section-title">Ready to Transform Your Digital Presence?</h2>
+                <p>We believe in building digital solutions that are not just beautiful, but fundamentally efficient and
+                    scalable. Minimo is the foundation for your next great project.</p>
+                <a href="#pricing" class="cta-button">See Plans</a>
+            </div>
+        </section>
         <section id="contact" class="contact-form-section">
             <h3>Contact Us</h3>
             <form id="contact-form">
@@ -55,6 +134,7 @@
         <p>&copy; 2025 Modern Landing Page</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

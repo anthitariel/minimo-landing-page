@@ -1,5 +1,7 @@
 /* Modern CSS Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -7,12 +9,28 @@
 
 /* CSS Variables for easy theme switching */
 :root {
-    --primary-color: #3f51b5; /* Indigo */
-    --secondary-color: #f44336; /* Red */
+    --primary-color: #3f51b5;
+    /* Indigo */
+    --secondary-color: #f44336;
+    /* Red */
     --text-color: #333;
     --background-color: #f9f9f9;
     --font-family: 'Arial', sans-serif;
 }
+
+/* FIX: Prevents fixed header from hiding content when navigating to anchor links */
+html {
+    scroll-padding-top: 70px;
+    /* Standard header height offset */
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 100px;
+        /* Increased padding for mobile usability (assuming header is taller) */
+    }
+}
+
 
 body {
     font-family: var(--font-family);
@@ -26,10 +44,15 @@ a {
     color: var(--primary-color);
 }
 
-/* Header and Navigation (Flexbox) */
+/* Header and Navigation (Mobile/Default Styles) */
 .header {
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .navbar {
@@ -38,71 +61,361 @@ a {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 1rem;
+}
+
+.logo-link {
+    color: var(--text-color);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
 }
 
-/* Hero Section (Grid/Flexbox for layout) */
-.hero-section {
-    display: flex; /* Use Flexbox for primary layout */
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-    min-height: 60vh;
+.nav-links li {
+    margin-left: 20px;
 }
 
-.hero-content {
-    max-width: 50%;
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s ease;
 }
 
-.hero-content h2 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.nav-links a:hover {
     color: var(--primary-color);
 }
 
-.cta-button {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 0.75rem 1.5rem;
+/* Hamburger Menu Toggle */
+.menu-toggle {
+    display: none;
+    /* Hidden on desktop */
     border: none;
-    border-radius: 5px;
+    background: transparent;
     cursor: pointer;
-    font-size: 1rem;
-    margin-top: 1.5rem;
-    transition: background-color 0.3s ease;
+    padding: 10px;
 }
 
-.cta-button:hover {
-    background-color: #d32f2f; /* Darker red */
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    position: relative;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Features Section (CSS Grid) */
-.features-section {
-    display: grid; /* Use Grid for consistent card layout */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        /* Hidden by default */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        /* Below header */
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+
+/* --- Utility Classes & Base Styles --- */
+.section-title {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
     text-align: center;
 }
 
-.feature-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
-/* Contact Form */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--secondary-color);
+    /* Default CTA button color */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #d32f2f;
+    /* Darker red on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- HERO SECTION STYLES --- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    /* Full viewport height */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+    /* Dark overlay for text readability */
+    transition: transform 10s ease-out;
+    /* Slower transition for subtle movement */
+}
+
+/* Subtle Zoom effect on hover */
+.hero-section:hover .hover-zoom {
+    transform: scale(1.1);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-title {
+    font-size: 4rem;
+    /* UPDATED SPACING */
+    margin-bottom: 1.5rem; 
+    font-weight: 900;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    /* UPDATED SPACING */
+    margin-bottom: 3rem; 
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+
+/* --- FEATURE SECTION STYLES --- */
+.features-section {
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.feature-item {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+    color: #666;
+}
+
+/* --- INFO BLOCK STYLES (Used for CTAs) --- */
+.info-block-section {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.info-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.info-content .section-title {
+    color: #fff;
+    /* Override section-title color to be white */
+}
+
+.info-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    /* UPDATED SPACING */
+    margin-bottom: 2rem; 
+}
+
+/* --- PRICING SECTION STYLES --- */
+.pricing-section {
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.pricing-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.plan-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666;
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.pricing-card ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #eee;
+    color: #555;
+}
+
+.pricing-card ul li:last-child {
+    border-bottom: none;
+}
+
+.pricing-card.selected {
+    border: 2px solid #0c2aa2;
+    transform: scale(1.05);
+    /* Slightly scales up to indicate selection */
+    box-shadow: 0 15px 35px rgba(63, 81, 181, 0.3);
+    /* Stronger shadow to indicate selection */
+}
+
+
+/* --- Featured image style --- */
+.feature-image {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    /* Space between icon and text */
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- CONTACT & FOOTER STYLES --- */
+
 .contact-form-section {
     max-width: 600px;
     margin: 4rem auto;
@@ -112,35 +425,40 @@ a {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-#contact-form input, #contact-form textarea {
+#contact-form input,
+#contact-form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 1rem;
+}
+
+#contact-form textarea {
     resize: vertical;
+    min-height: 100px;
 }
 
-/* Footer */
-.footer {
-    background-color: var(--primary-color);
-    color: white;
+#form-status {
     text-align: center;
-    padding: 1.5rem 0;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    font-weight: 600;
+    min-height: 1.5rem;
 }
 
-/* Media Query for Responsiveness */
-@media (max-width: 768px) {
-    .hero-section {
+/* --- FOOTER STYLES --- */
+.footer {
+    background-color: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 992px) {
+    .pricing-cards-container {
         flex-direction: column;
-        text-align: center;
-    }
-    .hero-content {
-        max-width: 100%;
-        margin-bottom: 2rem;
-    }
-    .hero-image {
-        display: none; /* Hide image on small screens for simplicity */
+        align-items: center;
     }
 }
